@@ -4,7 +4,7 @@ import c from "./Post.module.scss";
 function Post() {
   return (
     <div className={c.post}>
-      
+      Post
     </div>
   );
 }
