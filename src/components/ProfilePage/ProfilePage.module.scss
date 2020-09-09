@@ -14,6 +14,11 @@
 
 .section {
   display: flex;
+  justify-content: space-between;
+
+  .section__user {
+    display: flex;
+  }
 
   .section__coll {
   
@@ -24,7 +29,8 @@
     }
 
     &:nth-child(2) {
-      width: 200px;
+      position: absolute;
+      left: 260px;
     }
   }
 
@@ -54,5 +60,9 @@
 
   .section__content {
     margin-top: 10px;
+  }
+
+  .section__popup {
+    margin-top: 37px;
   }
 }

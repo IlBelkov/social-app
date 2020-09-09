@@ -1,14 +1,14 @@
 import React from 'react';
 import "./App.scss";
 import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Header />
-      <Profile />
+      <ProfilePage dialogs={props.dialogs}/>
     </div>
   );
 }

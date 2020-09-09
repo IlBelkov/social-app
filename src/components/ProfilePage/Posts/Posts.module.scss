@@ -1,0 +1,14 @@
+@import '../../../assets/style/variables.scss';
+
+.posts {
+  .posts__input {
+    display: block;
+    width: 501px;
+    min-height: 73px;
+    border: 7px;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+  }
+}
+
