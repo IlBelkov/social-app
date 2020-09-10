@@ -1,0 +1,13 @@
+.post {
+  width: 100%;
+  min-height: 70px;
+  background-color: #333336;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 6px;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}

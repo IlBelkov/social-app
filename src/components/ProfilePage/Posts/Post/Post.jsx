@@ -1,10 +1,12 @@
 import React from "react";
 import c from "./Post.module.scss";
 
-function Post() {
+let Post = (props) => {
   return (
     <div className={c.post}>
-      Post
+      <div className={c.post__message}>
+        {props.message}
+      </div>
     </div>
   );
 }
