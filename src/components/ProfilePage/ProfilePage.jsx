@@ -53,7 +53,15 @@ let ProfilePage = (props) => {
                 />
               )}
             />
-            <Route path="/Messages" render={() => <Messages />} />
+            <Route
+              path="/Messages"
+              render={() => (
+                <Messages
+                  messages={props.state.messages}
+                  dispatch={props.dispatch}
+                />
+              )}
+            />
             <Route path="/Friends" render={() => <Friends />} />
           </div>
         </div>
