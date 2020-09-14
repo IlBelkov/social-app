@@ -2,10 +2,10 @@ import React from "react";
 import c from "./ProfilePage.module.scss";
 import Nav from "./Nav/Nav";
 import Friends from "./Friends/Friends";
-import Messages from "./Messages/Messages";
-import Posts from "./Posts/Posts";
+import MessagesContainer from "./Messages/MessagesContainer";
+import PostsContainer from "./Posts/PostsContainer";
 import { Route } from "react-router-dom";
-import DialogsUsers from "./DialogsUsers/DialogsUsers";
+import DialogsUsersContainer from "./DialogsUsers/DialogsUsersContainer";
 
 let ProfilePage = (props) => {
   return (
@@ -35,8 +35,8 @@ let ProfilePage = (props) => {
                 <Route
                   path="/Messages"
                   render={() => (
-                    <DialogsUsers
-                      dialogsUsers={props.state.messages.dialogsUsers}
+                    <DialogsUsersContainer
+                      store={props.store}
                     />
                   )}
                 />
@@ -47,18 +47,16 @@ let ProfilePage = (props) => {
             <Route
               path="/Profile"
               render={() => (
-                <Posts
-                  profilePage={props.state.profilePage}
-                  dispatch={props.dispatch}
+                <PostsContainer
+                  store={props.store}
                 />
               )}
             />
             <Route
               path="/Messages"
               render={() => (
-                <Messages
-                  messages={props.state.messages}
-                  dispatch={props.dispatch}
+                <MessagesContainer
+                  store={props.store}
                 />
               )}
             />

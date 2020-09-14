@@ -1,13 +1,11 @@
 import React from "react";
 import c from "./Posts.module.scss";
 import Post from "./Post/Post";
-import {addPostAction} from '../../../redux/state';
-import {updatePostAction} from '../../../redux/state';
 
 // var textarea = document.querySelector('textarea');
 
 // textarea.addEventListener('keydown', autosize);
-             
+
 // function autosize(){
 //   var el = this;
 //   setTimeout(function(){
@@ -19,31 +17,34 @@ import {updatePostAction} from '../../../redux/state';
 // }
 
 let Posts = (props) => {
-  let postsItem = props.profilePage.posts.map(post => <Post id={post.id} message={post.message} />).reverse();
+  let postsItem = props.posts
+    .map((post) => <Post id={post.id} message={post.message} />)
+    .reverse();
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    let action = addPostAction();
-    props.dispatch(action);
-  }
+    props.addPost();
+  };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updatePostAction(text);
-    props.dispatch(action);
-  }
+    props.onPostChange(text);
+  };
 
   return (
     <div className={c.posts}>
-      <textarea className={c.posts__input} ref={newPostElement} value={props.profilePage.newPostText} onChange={onPostChange}/>
+      <textarea
+        className={c.posts__input}
+        ref={newPostElement}
+        value={props.newPostText}
+        onChange={onPostChange}
+      />
       <button onClick={addPost}>Send</button>
-      
-      <div className={c.posts__block}>
-        {postsItem}
-      </div>
+
+      <div className={c.posts__block}>{postsItem}</div>
     </div>
   );
-}
+};
 
 export default Posts;

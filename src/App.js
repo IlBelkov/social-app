@@ -7,7 +7,7 @@ let  App = (props) => {
   return (
     <div className="App">
       <Header />
-      <ProfilePage state={props.state} dispatch={props.dispatch}/>
+      <ProfilePage store={props.store}/>
     </div>
   );
 }
