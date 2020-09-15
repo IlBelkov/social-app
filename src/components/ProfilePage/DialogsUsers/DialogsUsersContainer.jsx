@@ -1,11 +1,13 @@
-import React from "react";
+// import React from "react";
 import DialogsUsers from "./DialogsUsers";
+import {connect} from 'react-redux';
 
-let DialogsUsersContainer = (props) => {
-  let state = props.store.getState();
-  return (
-    <DialogsUsers dialogsUsers = {state.messages.dialogsUsers}/>
-  );
-}
+const mapStoreToProps = (state) => {
+  return {
+    dialogsUsers: state.messages.dialogsUsers,
+  }
+};
+
+let DialogsUsersContainer = connect(mapStoreToProps)(DialogsUsers);
 
 export default DialogsUsersContainer;

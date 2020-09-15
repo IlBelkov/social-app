@@ -7,7 +7,7 @@ let  App = (props) => {
   return (
     <div className="App">
       <Header />
-      <ProfilePage store={props.store}/>
+      <ProfilePage />
     </div>
   );
 }

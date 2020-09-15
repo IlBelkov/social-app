@@ -1,29 +1,31 @@
-import React from "react";
+// import React from "react";
 import Messages from "./Messages";
 import {
   changeMessageAction,
   sendMessageAction,
 } from "../../../redux/messages-reducer";
+import { connect } from "react-redux";
 
-function MessagesContainer(props) {
-  let state = props.store.getState();
-
-  let sendMessage = () => {
-    props.store.dispatch(sendMessageAction());
+let mapStoreToProps = (state) => {
+  return {
+    dialogsMessage: state.messages.dialogsMessage,
+    dialogs: state.messages.dialogs,
   };
-
-  let changeMessageValue = (text) => {
-    props.store.dispatch(changeMessageAction(text));
-  };
-
-  return (
-    <Messages
-      sendMessage={sendMessage}
-      changeMessageValue={changeMessageValue}
-      dialogsMessage={state.messages.dialogsMessage}
-      dialogs={state.messages.dialogs}
-    />
-  );
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    sendMessage: () => {
+      dispatch(sendMessageAction());
+    },
+    changeMessageValue: (text) => {
+      dispatch(changeMessageAction(text));
+    },
+  }
+
+
+}
+
+let MessagesContainer = connect(mapStoreToProps, mapDispatchToProps)(Messages);
 
 export default MessagesContainer;

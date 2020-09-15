@@ -34,32 +34,14 @@ let ProfilePage = (props) => {
               <div className={c.section__popup}>
                 <Route
                   path="/Messages"
-                  render={() => (
-                    <DialogsUsersContainer
-                      store={props.store}
-                    />
-                  )}
+                  render={() => <DialogsUsersContainer />}
                 />
               </div>
             </div>
           </div>
           <div className={c.section__content}>
-            <Route
-              path="/Profile"
-              render={() => (
-                <PostsContainer
-                  store={props.store}
-                />
-              )}
-            />
-            <Route
-              path="/Messages"
-              render={() => (
-                <MessagesContainer
-                  store={props.store}
-                />
-              )}
-            />
+            <Route path="/Profile" render={() => <PostsContainer />} />
+            <Route path="/Messages" render={() => <MessagesContainer />} />
             <Route path="/Friends" render={() => <Friends />} />
           </div>
         </div>
