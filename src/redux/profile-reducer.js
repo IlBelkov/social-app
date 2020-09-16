@@ -2,7 +2,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 const initialState = {
-    posts: [
+  posts: [
       { id: 1, message: 'Hi, how are you?' },
       { id: 2, message: 'Hi' },
       { id: 3, message: 'how are you?' },
@@ -12,23 +12,20 @@ const initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-  debugger;
   switch (action.type) {
-    case ADD_POST:
-      let newPost = {
-        id: 5,
-        message: state.newPostText,
-      };
-      let stateCopy = {...state};
-      stateCopy.posts = [...state.posts];
-      stateCopy.posts = [...stateCopy.posts, newPost];
-      stateCopy.newPostText = '';
-      return stateCopy;
-
+    case ADD_POST: {
+      let textBody = state.newPostText;
+      return {
+        ...state,
+        posts: [...state.posts, { id: 4, message: textBody}],
+        newPostText: '',
+      }
+    }
     case UPDATE_NEW_POST_TEXT: {
-      let stateCopy = {...state};
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
+      return {
+        ...state,
+        newPostText: action.text,
+      }
     }
     default: {
       return state;

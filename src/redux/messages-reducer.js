@@ -20,16 +20,17 @@ const initialState = {
 
 const messagesReducer = (state = initialState, action) => {
   if (action.type === SEND_MESSAGE) {
-    let newMessage = {
-      id: '',
-      message: state.dialogsMessage,
-    }
-    state.dialogs.push(newMessage);
-    state.dialogsMessage = '';
-    return state;
+    let textBody = state.dialogsMessage;
+     return {
+      ...state,
+      dialogs: [...state.dialogs,  {id: '6', message: textBody}],
+      dialogsMessage: '',
+    };
   } else if (action.type === CHANGE_MESSAGE_VALUE) {
-    state.dialogsMessage = action.newText;
-    return state;
+    return {
+      ...state,
+      dialogsMessage: action.newText,
+    }
   }
 
   return state;
