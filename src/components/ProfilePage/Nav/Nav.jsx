@@ -14,6 +14,9 @@ function Nav() {
       <div className={c.nav__link}>
         <NavLink to="/Friends" className={c.link}>Friends</NavLink>
       </div>
+      <div className={c.nav__link}>
+        <NavLink to="/Users" className={c.link}>Users</NavLink>
+      </div>
     </div>
   );
 }

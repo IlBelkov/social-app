@@ -6,6 +6,7 @@ import MessagesContainer from "./Messages/MessagesContainer";
 import PostsContainer from "./Posts/PostsContainer";
 import { Route } from "react-router-dom";
 import DialogsUsersContainer from "./DialogsUsers/DialogsUsersContainer";
+import UsersContainer from "./Users/UsersContainer";
 
 let ProfilePage = (props) => {
   return (
@@ -43,6 +44,7 @@ let ProfilePage = (props) => {
             <Route path="/Profile" render={() => <PostsContainer />} />
             <Route path="/Messages" render={() => <MessagesContainer />} />
             <Route path="/Friends" render={() => <Friends />} />
+            <Route path="/Users" render={() => <UsersContainer />} />
           </div>
         </div>
       </div>

@@ -1,0 +1,26 @@
+@import '../../../../assets/style/variables.scss';
+
+.user {
+
+  .user__item {
+    width: 100%;
+    min-height: 70px;
+    background-color: #333336;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+
+  }
+
+  .user__location {
+    text-align: right;
+  }
+
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
