@@ -1,6 +1,7 @@
 import Users from "./Users";
 import {connect} from 'react-redux';
 import { follow } from "../../../redux/users-reducer";
+import { setUsers } from "../../../redux/users-reducer";
 
 const mapStoreToProps = (state) => {
   return {
@@ -12,6 +13,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleFollow: (id) => {
       dispatch(follow(id));
+    },
+
+    setUsers: (users) => {
+      dispatch(setUsers(users))
     },
     // toggleUnfollow: (id) => {
     //   dispatch(unfollow(id));

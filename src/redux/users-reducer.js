@@ -1,4 +1,6 @@
+
 const FOLLOW = 'FOLLOW';
+const SET_USERS = 'SET-USERS';
 // const UNFOLLOW='UNFOLLOW';
 
 const initialState = {
@@ -21,6 +23,10 @@ const usersRedusers = (state = initialState, action) => {
       stateCopy.users[id] = {...stateCopy.users[id], followed: true};
     }
     return stateCopy;
+  }  else if (action.type === SET_USERS){
+    return {
+      ...state, users: action.users
+    }
   }
 
   return state;
@@ -56,8 +62,12 @@ const usersRedusers = (state = initialState, action) => {
 }
 export let follow = (id) => ({
     type: FOLLOW,
-    id: id
-})
+    id
+});
+export let setUsers = (users) => ({
+    type: SET_USERS,
+    users
+});
 // export let unfollow = (id) => ({
 //     type: UNFOLLOW,
 //     id: id
