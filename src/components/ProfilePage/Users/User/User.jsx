@@ -5,6 +5,9 @@ let User = (props) => {
   let toggleFollow = () => {
     props.toggleFollow(props.id);
   }
+  // let toggleUnfollow = () => {
+  //   props.toggleUnfollow(props.id);
+  // }
 
   // let followReverse = () => {
   //   props.followReverse();
@@ -17,6 +20,7 @@ let User = (props) => {
           {props.name}
           <div className={c.user__followBtn}>
             <button onClick={toggleFollow}>{props.followed ? "follow" : "unfollow"}</button>
+            {/* {props.followed ? <button onClick={toggleFollow}>follow</button> : <button onClick={toggleUnfollow}>unfollow</button>} */}
           </div>
         </div>
         <div className={c.user__location}>

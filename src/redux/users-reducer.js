@@ -1,41 +1,69 @@
-const ADD_FRIEND = 'ADD-FRIEND';
-// const REVERSE_TOGGLE='REVERSE-TOGGLE';
+const FOLLOW = 'FOLLOW';
+// const UNFOLLOW='UNFOLLOW';
 
 const initialState = {
-    users: [
-      { name: 'Ilya', location: {city: 'Kiev', country: 'Ukraine'}, id: '1', followed: true },
-      { name: 'Vlad', location: {city: 'Rostov', country: 'Russia'}, id: '2', followed: false },
-      { name: 'Jenya', location: {city: 'Moskov', country: 'Russia'}, id: '3', followed: true },
-      { name: 'Elya', location: {city: 'Rostov', country: 'Russia'}, id: '4', followed: false },
-    ],
+  users: [
+    { name: 'Ilya', location: {city: 'Kiev', country: 'Ukraine'}, id: '1', followed: true },
+    { name: 'Vlad', location: {city: 'Rostov', country: 'Russia'}, id: '2', followed: false },
+    { name: 'Jenya', location: {city: 'Moskov', country: 'Russia'}, id: '3', followed: true },
+    { name: 'Elya', location: {city: 'Rostov', country: 'Russia'}, id: '4', followed: false },
+  ],
 };
 
 const usersRedusers = (state = initialState, action) => {
-  debugger;
-  if(action.type === ADD_FRIEND) {
-    let stateUsers = [ ...state];
-    let id = stateUsers.findIndex(i => i.id === action.id);
-    if(stateUsers[id].followed === true) {
-      stateUsers[id] = {...stateUsers[id], followed: false};
+  if(action.type === FOLLOW) {
+    let stateCopy =  { ...state};
+    stateCopy.users = [...state.users];
+    let id = stateCopy.users.findIndex(i => i.id === action.id);
+    if(stateCopy.users[id].followed === true) {
+      stateCopy.users[id] = {...stateCopy.users[id], followed: false};
     } else {
-      stateUsers[id] = {...stateUsers[id], followed: true};
+      stateCopy.users[id] = {...stateCopy.users[id], followed: true};
     }
-    return stateUsers;
+    return stateCopy;
   }
 
-  return state.users;
-}
+  return state;
 
-export let toggleFollow = (id) => {
-  return {
-    type: ADD_FRIEND,
+
+  // switch (action.type) {
+  //   case FOLLOW: {
+  //     return {
+  //       ...state,
+  //       users: state.users.map(u => {
+  //         if(u.id === action.id) {
+  //           return {...u, followed: false}
+  //         }
+  //         return u;
+  //       })
+  //     }
+  //   }
+
+  //   case UNFOLLOW: {
+  //     return {
+  //       ...state,
+  //       users: state.users.map(u => {
+  //         if(u.id === action.id) {
+  //           return {...u, followed: true}
+  //         }
+  //         return u;
+  //       })
+  //     }
+  //   }
+  //   default:
+  //     return state;
+  // }
+}
+export let follow = (id) => ({
+    type: FOLLOW,
     id: id
-  }
-}
-// export let followReverse = () => {
-//   return {
-//     type: REVERSE_TOGGLE
-//   }
-// }
+})
+// export let unfollow = (id) => ({
+//     type: UNFOLLOW,
+//     id: id
+// })
+
 
 export default usersRedusers;
+
+
