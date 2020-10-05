@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import "typeface-roboto";
@@ -7,13 +7,16 @@ import "./index.scss";
 import store from './redux/redux-store';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
+import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

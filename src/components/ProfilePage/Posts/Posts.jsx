@@ -31,7 +31,7 @@ let Posts = (props) => {
     let text = newPostElement.current.value;
     props.onPostChange(text);
   };
-
+  
   return (
     <div className={c.posts}>
       <textarea

@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_LAGUAGE = 'UPDATE-LAGUAGE';
 
 const initialState = {
   posts: [
@@ -9,6 +10,7 @@ const initialState = {
       { id: 4, message: 'loh' },
     ],
   newPostText: 'Что произошло этим вечером?',
+  language: 'en',
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,18 +29,28 @@ const profileReducer = (state = initialState, action) => {
         newPostText: action.newText,
       }
     }
+    case UPDATE_LAGUAGE: {
+      return {
+        ...state,
+        language: action.language,
+      }
+    }
     default: {
       return state;
     }
   }
 }
 
-export let addPostAction = () => ({
+export const addPostAction = () => ({
   type: ADD_POST
 });
-export let updatePostAction = (text) => ({
+export const updatePostAction = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text
 });
+export const catchLanguage = (language) => ({
+  type: UPDATE_LAGUAGE,
+  language: language
+})
 
 export default profileReducer;

@@ -7,8 +7,15 @@ import PostsContainer from "./Posts/PostsContainer";
 import { Route } from "react-router-dom";
 import DialogsUsersContainer from "./DialogsUsers/DialogsUsersContainer";
 import UsersContainer from "./Users/UsersContainer";
+import {useTranslation } from "react-i18next";
 
 let ProfilePage = (props) => {
+  // debugger;
+  const {t,i18n} = useTranslation();
+
+
+  i18n.changeLanguage(props.language);
+
   return (
     <div className={c.profilePage}>
       <div className={c.container}>
@@ -29,7 +36,9 @@ let ProfilePage = (props) => {
             </div>
             <div className={c.section__coll}>
               <div className={c.section__username}>
-                <div className={c.section__online}>In darkness:</div>
+                <div className={c.section__online}>
+                  {t("profile.onlineStatus")}
+                </div>
                 <div className={c.section__name}>Ilya Belkov</div>
               </div>
               <div className={c.section__popup}>

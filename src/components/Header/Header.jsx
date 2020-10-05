@@ -1,7 +1,12 @@
 import React from "react";
 import c from "./Header.module.scss";
 
-function Header() {
+function Header(props) {
+  // debugger;
+  const changeLanguage = (language) => {
+    props.catchLanguage(language);
+  }
+
   return (
     <div className={c.header}>
       <div className={c.container}>
@@ -13,6 +18,9 @@ function Header() {
           />
         </div>
         <div className={c.header__profile}>
+          <button onClick={()=>changeLanguage('en')}>En</button>
+          <button onClick={()=>changeLanguage('ru')}>Ru</button>
+          <button onClick={()=>changeLanguage('de')}>De</button>
           <div className={c.header__name}>Ilya Belkov</div>
         </div>
       </div>
